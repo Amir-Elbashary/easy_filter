@@ -26,7 +26,7 @@ then run `rails db:migrate`
 
 mount the gem to your routes `mount EasyFilter::Engine => "/easy_filters"`
 
-Navigate to `yourapp/easy_filter/filters` to start using it
+Navigate to `localhost:3000/easy_filter/filters` to start using it
 
 ## Contributing
 Contribution directions go here.
