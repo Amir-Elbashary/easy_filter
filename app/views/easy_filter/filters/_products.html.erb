@@ -1,0 +1,15 @@
+<table>
+  <thead>
+    <th><%= @filter_type %></th>
+    <th>Bookings</th>
+  </thead>
+  <tbody>
+    <%= @filter.products.split(',') %>
+    <% @results.each do |result| %>
+      <tr>
+        <td><%= result.name %></td>
+        <td><%=  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,12 @@
+<h1>Easy Filter</h1>
+
+<h3>Results</h3>
+<h4>Query Target: <%= @filter_type.titleize %></h4>
+
+<% if @filter_type == 'sql' %>
+  <%= render 'sql' %>
+<% elsif @filter_type == 'products' %>
+  <%= render 'products' %>
+<% elsif @filter_type == 'events' %>
+  <%= render 'events' %>
+<% end %>

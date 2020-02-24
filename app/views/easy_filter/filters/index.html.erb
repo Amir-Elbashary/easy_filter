@@ -1,0 +1,50 @@
+<h1>Easy Filter</h1>
+
+<% flash.each do |type, msg| %>
+  <%= msg %>
+  <hr>
+<% end %>
+
+<h3>Please note you need to enter either product and/or event IDS or SQL query, Also note that SQL query overrides the other fields</h3>
+<hr>
+<h3>Cases Covered</h3>
+<h2>1- Enter products IDs and you'll get most booked events for this product</h2>
+<h2>2- Enter events IDs and you'll get most booked events for this event</h2>
+<h2>3- Use SQL query to get whatever data you want</h2>
+<h2 style="color: red">Too many cases to be covered for now and time isn't on my side :(</h2>
+
+<%= form_for @filter, url: 'filters' do |f| %>
+  <%= f.label :products %>
+  <%= f.text_field :products, placeholder: 'IDs sperated by comma' %>
+  <br><br>
+  <%= f.label :events %>
+  <%= f.text_field :events, placeholder: 'IDS seperated by comma' %>
+  <br><br>
+  <%= f.label 'SQL Query' %>
+  <%= f.text_field :sql_query, placeholder: 'SQL Statement' %>
+  <br><br>
+  <%= f.submit 'Save' %>
+<% end %>
+
+<h3>Filter</h3>
+<table>
+  <thead>
+    <th>Products</th>
+    <th>Events</th>
+    <th>SQL Query</th>
+    <th>Actions</th>
+  </thead>
+  <tbody>
+    <% @filters.each do |filter| %>
+      <tr>
+        <td><%= filter.products %></td>
+        <td><%= filter.events %></td>
+        <td><%= filter.sql_query %></td>
+        <td>
+          <%= link_to 'Use Filter', "filters/#{filter.id}" %>
+          <%= link_to 'Delete', "filters/#{filter.id}", method: :delete, data: { confirm: 'Are you sure ?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

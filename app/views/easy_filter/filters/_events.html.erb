@@ -1,0 +1,14 @@
+<table>
+  <thead>
+    <th><%= @filter_type %></th>
+    <th>Bookings</th>
+  </thead>
+  <tbody>
+    <% @results.each do |result| %>
+      <tr>
+        <td><%=  %></td>
+        <td><%=  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
