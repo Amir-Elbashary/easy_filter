@@ -5,7 +5,7 @@ Makes sorting fun
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'easy_filter'
+gem 'easy_filter', git: 'https://github.com/Amir-Elbashary/easy_filter.git'
 ```
 
 And then execute:
@@ -23,6 +23,8 @@ After running bundle
 rails g easy_filter:install
 ```
 then run `rails db:migrate`
+
+mount the gem to your routes `mount EasyFilter::Engine => "/easy_filters"`
 
 Navigate to `yourapp/easy_filter/filters` to start using it
 
